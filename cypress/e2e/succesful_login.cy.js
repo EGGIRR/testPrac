@@ -17,6 +17,9 @@ describe('Cypress Test',() => {
         cy.log('Клик по кнопке "Войти')
         cy.get('.form__buttons > :nth-child(3)')
             .click()
+
+        cy.get('.menu-item__name')
+           .should('exist')
     })
 })
 })
