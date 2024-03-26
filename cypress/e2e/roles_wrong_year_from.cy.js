@@ -1,5 +1,5 @@
 describe('Cypress Test',() => {
-  it ('succesful add role',() => {
+  it ('unsuccesful add role(wrong_year_from)',() => {
     cy.fixture('login').then(data => {
         cy.log('Переxод на страницу авторизации')
         cy.visit(data.main_url)
@@ -48,19 +48,16 @@ describe('Cypress Test',() => {
           .click()
 
         cy.get('.desktop-modal__content > .student-form > .student-form__years > :nth-child(1) > .form-control--max > .form-input--number')
-          .type(data.from_year)
+          .type(data.from_year_wrong)
 
         cy.get('.desktop-modal__content > .student-form > .student-form__years > :nth-child(2) > .form-control--max > .form-input--number')
           .type(data.to_year)
 
-        cy.get('.desktop-modal__content > .student-form > .button')
-          .click()
-
-        cy.get(':nth-child(3) > .menu-item__item-name')
-          .click()
-
-        cy.get('.shared-list-item')
+        cy.get('.form-error > span')
           .should('exist')
+          
+        cy.get('.desktop-modal__content > .student-form > .button')
+          .should('be.disabled')
     })
   })
 })

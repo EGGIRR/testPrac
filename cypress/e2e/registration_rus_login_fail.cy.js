@@ -4,7 +4,7 @@ describe('Cypress Test',() => {
           cy.log('Переxод на страницу регистрации')
           cy.visit(data.main_url)
 
-          cy.log('Ввод существующего логина')
+          cy.log('Ввод несуществующего логина')
           cy.get('input[autocomplete="username"]')
               .type(data.rus_login)
 

@@ -1,5 +1,5 @@
 describe('Cypress Test',() => {
-  it ('succesful add role',() => {
+  it ('unsuccesful add role(wrong_speciality)',() => {
     cy.fixture('login').then(data => {
         cy.log('Переxод на страницу авторизации')
         cy.visit(data.main_url)
@@ -36,10 +36,6 @@ describe('Cypress Test',() => {
 
         cy.get('.desktop-modal__content > .student-form > .choose-specialty > [data-v-0dbb9e5f=""] > .search-input > div.search-input__field > .form-input--text')
           .type(data.speciality)
-          .wait(1000)
-
-        cy.get('.desktop-modal__content > .student-form > .choose-specialty > [data-v-0dbb9e5f=""] > .search-input > div.search-input__wrapper-result > :nth-child(1)')
-          .click()
 
         cy.get('.desktop-modal__content > .student-form > :nth-child(3) > .form-control--max > .form-input--text')
           .type(data.text)
@@ -53,14 +49,8 @@ describe('Cypress Test',() => {
         cy.get('.desktop-modal__content > .student-form > .student-form__years > :nth-child(2) > .form-control--max > .form-input--number')
           .type(data.to_year)
 
-        cy.get('.desktop-modal__content > .student-form > .button')
-          .click()
-
-        cy.get(':nth-child(3) > .menu-item__item-name')
-          .click()
-
-        cy.get('.shared-list-item')
-          .should('exist')
+          cy.get('.desktop-modal__content > .student-form > .button')
+          .should('be.disabled')
     })
   })
 })

@@ -1,5 +1,5 @@
 describe('Cypress Test',() => {
-  it ('exist login signup test',() => {
+  it ('login signup test(wrong_email)',() => {
       cy.fixture('registration').then(data => {
           cy.log('Переxод на страницу регистрации')
           cy.visit(data.main_url)

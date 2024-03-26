@@ -1,5 +1,5 @@
 describe('Cypress Test',() => {
-  it ('succesful login test',() => {
+  it ('unsuccesful login test(Password error)',() => {
     cy.fixture('login').then(data => {
         cy.log('Переxод на страницу авторизации')
         cy.visit(data.main_url)
